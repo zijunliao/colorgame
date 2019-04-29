@@ -1,0 +1,54 @@
+body {
+	padding: 10px;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+.header {
+	height: 30%;
+	background-color: rgb(60,132,203);
+	padding: 20px;
+}
+
+.hints {
+	padding: 10px 0;
+}
+
+.question, #rgb-data {
+	text-transform: uppercase;
+}
+
+#rgb-data {
+	font-size: 3.5rem;
+}
+
+#new, #try-again, #option {
+	display: inline-block;
+	margin-right: 30px;
+}
+
+#hard {
+	margin-left: 10px;
+}
+
+.color {
+	width: 12rem;
+	height: 10rem;
+	/*background-color: yellow;*/
+	border-radius: 30px;
+	border: solid black 5px;
+}
+
+.options {
+	padding: 30px;
+	background-color: white;
+	background-color: black;
+}
+
+table {
+	margin: 0 auto;
+}
+
+.option-selected {
+	color: rgb(60,132,203);
+}
