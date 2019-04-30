@@ -18,6 +18,7 @@ var curQuestionColors;	//store current question for try again
 var correctGuess = false;
 
 
+
 function shuffleArray(arr) {
 	var j, i, x;
 	for(i=arr.length-1; i>0; i--) {
@@ -72,8 +73,17 @@ var assignEventToOptions = function(){
 	var colors = document.querySelectorAll("td");
 	
 	for(let i=0;i<colors.length;i++) {
-		colors[i].addEventListener("click", function(){
+		colors[i].addEventListener("click", function clickColor(){
 			var curColor = this.style.backgroundColor;
+			// Correct answer - skip
+			if(correctGuess === true) {
+				/*
+					If the answer is correct, skip the eventlistener
+					solve: unclick colors trigger refresh after answer correct.
+				*/
+				return;
+			}
+
 			if(curColor == questionColor) {
 				// Correct guess
 				// Turn header background and all option to correct color
@@ -93,6 +103,9 @@ var assignEventToOptions = function(){
 					}			
 				}, 100);
 			}
+
+			// The eventListener will be removed once click
+			colors[i].removeEventListener("click", clickColor);
 		});
 	}
 }
@@ -167,7 +180,6 @@ var changeAllOptionsColor = function(color){
 			(function(){
 				if(colors[i].style.opacity < 1){
 					colors[i].style.opacity = +colors[i].style.opacity + 0.1;
-					console.log(colors[i].style.opacity);
 				} else {
 					clearInterval(timer);
 				}
